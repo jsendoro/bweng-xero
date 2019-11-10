@@ -1,0 +1,23 @@
+﻿@model Xero.Api.Core.Model.Organisation
+
+@{
+    ViewBag.Title = "Organisation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Organisation Details</h1>
+
+<h4>Id: @Model.Id</h4>
+<h4>Name: @Model.Name</h4>
+<h4>LegalName: @Model.LegalName</h4>
+<h4>ShortCode: @Model.ShortCode</h4>
+<h4>IsDemoCompany: @Model.IsDemoCompany</h4>
+<h4>CreatedDateUtc: @Model.CreatedDateUtc</h4>
+
+<btn type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Account", "Organisation")'">
+    Get All Organisation's Accounts
+</btn>
+
+<btn type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Vendor", "Organisation")'">
+    Get All Organisation's Vendors
+</btn>

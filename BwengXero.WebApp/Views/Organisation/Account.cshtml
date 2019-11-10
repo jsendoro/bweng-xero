@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Xero.Api.Core.Model.Account>
+
+@{
+    ViewBag.Title = "Accounts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<btn type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Organisation")'">
+    Back to Organisation Home
+</btn>
+
+<btn type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Download", "Organisation", new { type = "account" })'">
+    Download data as json
+</btn>
+
+<h2>List of all Accounts:</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>@item.Id</td>
+                <td>@item.Code</td>
+                <td>@item.Name</td>
+                <td>@item.Name</td>
+                <td>@item.Status</td>
+                <td>@item.Type</td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
