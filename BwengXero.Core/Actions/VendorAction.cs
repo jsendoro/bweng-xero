@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Xero.Api.Core.Model;
+using Xero.Api.Example.Applications.Public;
 
 namespace BwengXero.Core.Actions
 {
@@ -13,12 +14,19 @@ namespace BwengXero.Core.Actions
         /// <returns></returns>
         public static IEnumerable<Contact> GetAllVendors()
         {
-            var contacts = XeroApiHelper.CoreApi()?
-                .Contacts
-                .Find()
-                .ToList();
+            try
+            {
+                var contacts = XeroApiHelper.CoreApi()?
+                    .Contacts
+                    .Find()
+                    .ToList();
 
-            return contacts;
+                return contacts;
+            }
+            catch (Exception)
+            {
+                throw new RenewTokenException();
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xero.Api.Core.Model;
+using Xero.Api.Example.Applications.Public;
 
 namespace BwengXero.Core.Actions
 {
@@ -11,13 +13,20 @@ namespace BwengXero.Core.Actions
         /// </summary>
         /// <returns></returns>
         public static IEnumerable<Account> GetAllAccounts()
-        {           
-            var accounts = XeroApiHelper.CoreApi()
-                .Accounts
-                .Find()
-                .ToList();
+        {
+            try
+            {
+                var accounts = XeroApiHelper.CoreApi()
+                    .Accounts
+                    .Find()
+                    .ToList();
 
-            return accounts;
+                return accounts;
+            }
+            catch (Exception)
+            {
+                throw new RenewTokenException();
+            }
         }
     }
 }

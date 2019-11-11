@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xero.Api.Core.Model;
+using Xero.Api.Example.Applications.Public;
 
 namespace BwengXero.Core.Actions
 {
@@ -15,10 +16,16 @@ namespace BwengXero.Core.Actions
         /// <returns></returns>
         public static Organisation GetOrganisation()
         {
-            var organisation = XeroApiHelper.CoreApi()?
-                .Organisation;
+            try { 
+                var organisation = XeroApiHelper.CoreApi()?
+                    .Organisation;
 
-            return organisation;
+                return organisation;
+            }
+            catch(Exception)
+            {
+                throw new RenewTokenException();
+            }
         }
     }
 }

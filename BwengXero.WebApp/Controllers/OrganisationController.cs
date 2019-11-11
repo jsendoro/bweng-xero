@@ -18,7 +18,7 @@ namespace BwengXero.WebApp.Controllers
             }
             catch (RenewTokenException)
             {
-                return RedirectToAction("Connect", "Home");
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -31,7 +31,7 @@ namespace BwengXero.WebApp.Controllers
             }
             catch (RenewTokenException)
             {
-                return RedirectToAction("Connect", "Home");
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -44,7 +44,7 @@ namespace BwengXero.WebApp.Controllers
             }
             catch (RenewTokenException)
             {
-                return RedirectToAction("Connect", "Home");
+                return RedirectToAction("Index", "Home");
             }
         }
 

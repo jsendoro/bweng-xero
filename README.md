@@ -20,7 +20,6 @@
 - The Xero app is specifed as a public app right now. If the type of the app changed, the code in XeroApiHelper need to be changed also
 
 # Known / Possible bugs:
-- If you try to go to '/Organisation' or any of it's sub-pages by typing the url directly in the browser after starting the app, it will throw out exception
 - The MVC app was never tested with a client that have huge data. Ideally i will need to add paging when showing the data in table format
 - No logging has been implemented yet
 
